@@ -10,7 +10,7 @@ Calculates next move for a gomoku game.
 
 ## Install
 
-Just do `npm install gomokuai`.
+`npm install gomokuai`.
 
 ## Usage
 
@@ -45,7 +45,7 @@ const ai = require("gomokuai");
 
 /* ... */
 
-const { x, y } = bestMove(gameBoard.getBoard(), gameBoard.getSize());
+const { x, y } = ai.bestMove(gameBoard.getBoard(), gameBoard.getSize());
 gameBoard.play(x, y);
 ```
 
