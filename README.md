@@ -1,7 +1,7 @@
 # Simple gompku ai
 
 [![Build Status](https://travis-ci.org/litemerafrukt/gomokuai.svg?branch=master)](https://travis-ci.org/litemerafrukt/gomokuai)
-[![Maintainability](https://api.codeclimate.com/v1/badges/01d16a17f25957ec7f4e/maintainability)](https://codeclimate.com/github/litemerafrukt/gomokuai/maintainability)
+[![Maintainability](https://api.codeclimate.com/v1/badges/88a10f1a90b0434aa338/maintainability)](https://codeclimate.com/github/litemerafrukt/gomokuai/maintainability)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/litemerafrukt/gomokuai/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/litemerafrukt/gomokuai/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/litemerafrukt/gomokuai/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/litemerafrukt/gomokuai/?branch=master)
 [![Build Status](https://scrutinizer-ci.com/g/litemerafrukt/gomokuai/badges/build.png?b=master)](https://scrutinizer-ci.com/g/litemerafrukt/gomokuai/build-status/master)
@@ -52,5 +52,14 @@ gameBoard.play(x, y);
 ## Tests
 
 Clone the repo, cd in, `npm install`, `npm test`.
+
+## TODO
+
+* Write a new best-move calculator.
+* Increase code quality.
+
+## Shoutout
+
+The best-move calculator is a ripped from a jQuery plugin by [Stefan Gabos](https://github.com/stefangabos)
 
 Licens LGPL-3.0
