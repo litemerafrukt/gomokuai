@@ -1,6 +1,6 @@
 {
     "name": "gomokuai",
-    "version": "1.0.1",
+    "version": "1.0.2",
     "description": "Simple gomoku game ai",
     "main": "index.js",
     "scripts": {
