@@ -9,8 +9,8 @@
  */
 "use strict";
 
-const nextBestMove = (board, boardSize) => {
-    let m,
+function nextBestMove(board, boardSize) {
+    var m,
         l,
         position,
         type,
@@ -24,7 +24,7 @@ const nextBestMove = (board, boardSize) => {
         score;
 
     // iterate through all the board's cells
-    for (let i = boardSize * boardSize; i--; ) {
+    for (var i = boardSize * boardSize; i--; ) {
         // skip to next cell if this cell is owned by the computer
         // if (board[i] == 1) continue;
 
@@ -46,24 +46,24 @@ const nextBestMove = (board, boardSize) => {
         cellScore = [0, 0];
 
         // the 4 directions to check: vertical, horizontal, diagonal /, diagonal \ (in this order)
-        for (let j = 4; j--; ) {
+        for (var j = 4; j--; ) {
             // the default score for the direction we're checking
             directionScore = [0, 0];
 
             // check the 5 possible outcomes, as described above
             // (if we're checking whether the player won,
             // we'll do this iteration only once, checking for 5 in a row)
-            for (let k = !board[i] ? 5 : 1; k--; ) {
+            for (var k = !board[i] ? 5 : 1; k--; ) {
                 // initialize the type of cells we're looking for,
                 // and the array with the cells on the current direction
                 type = board[i] || undefined;
                 line = [];
 
                 // check the 5 pieces for each possible outcome, plus the 2 sides
-                for (let l = 7; l--; ) {
+                for (l = 7; l--; ) {
                     // used to compute position
                     m = -5 + k + l;
-                    let n = i % boardSize;
+                    var n = i % boardSize;
 
                     if (
                         // vertical
@@ -224,14 +224,14 @@ const nextBestMove = (board, boardSize) => {
 
             // update the cell's attack and defense score
             // (we simply sum the best scores of all 4 directions)
-            for (let k = 2; k--; ) {
+            for (k = 2; k--; ) {
                 cellScore[k] += directionScore[k];
             }
         }
 
         // used below
-        let j = cellScore[0] + cellScore[1];
-        let k = bestScore[1] + bestScore[2];
+        j = cellScore[0] + cellScore[1];
+        k = bestScore[1] + bestScore[2];
 
         // if cell's attack + defense score is better than
         // the current best attack and defense score
@@ -253,27 +253,27 @@ const nextBestMove = (board, boardSize) => {
     }
 
     // Calculation done return x, y
-    let x, y;
+    var x, y;
 
     y = Math.floor(bestScore[0] / boardSize);
     x = bestScore[0] % boardSize;
 
     return { x, y };
-};
+}
 
-const getRandomIntInclusive = (min, max) => {
+function getRandomIntInclusive(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
-};
+}
 
 // randomMove :: ([Mark], Size) -> Position
 //  Mark = 0 | 1 | 2
 //  Size = Integer
 //  Position = { x: Integer, y: Integer }
-const randomMove = (board, boardSize) => {
+function randomMove(board, boardSize) {
     if (board.every(x => x !== 0)) {
         return null;
     }
-    let x, y;
+    var x, y;
 
     do {
         x = getRandomIntInclusive(0, boardSize);
@@ -281,14 +281,14 @@ const randomMove = (board, boardSize) => {
     } while (board[x + y * boardSize] !== 0);
 
     return { x, y };
-};
+}
 
 // bestMove :: ([Mark], Size) -> Position
 //  Mark = 0 | 1 | 2
 //  Size = Integer
 //  Position = { x: Integer, y: Integer }
-const bestMove = (board, boardSize) => {
-    let pos = nextBestMove(board, boardSize);
+function bestMove(board, boardSize) {
+    var pos = nextBestMove(board, boardSize);
 
     // On occasion the algoritm calcs a position that is already taken
     // Catch that and randomize something.
@@ -297,6 +297,6 @@ const bestMove = (board, boardSize) => {
     }
 
     return pos;
-};
+}
 
 module.exports = { bestMove, randomMove };
