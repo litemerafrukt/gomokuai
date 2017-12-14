@@ -2,15 +2,12 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "es6": true,
-        "node": true
+        "es6": false,
+        "node": false
     },
     "extends": "eslint:recommended",
     "parserOptions": {
-        "ecmaFeatures": {
-            "experimentalObjectRestSpread": true,
-            "jsx": true
-        },
+        "ecmaFeatures": {},
         "sourceType": "module"
     },
     "plugins": ["react"],

@@ -258,7 +258,7 @@ function nextBestMove(board, boardSize) {
     y = Math.floor(bestScore[0] / boardSize);
     x = bestScore[0] % boardSize;
 
-    return { x, y };
+    return { x: x, y: y };
 }
 
 function getRandomIntInclusive(min, max) {
@@ -270,7 +270,11 @@ function getRandomIntInclusive(min, max) {
 //  Size = Integer
 //  Position = { x: Integer, y: Integer }
 function randomMove(board, boardSize) {
-    if (board.every(x => x !== 0)) {
+    if (
+        board.every(function(x) {
+            return x !== 0;
+        })
+    ) {
         return null;
     }
     var x, y;
@@ -280,7 +284,7 @@ function randomMove(board, boardSize) {
         y = getRandomIntInclusive(0, boardSize);
     } while (board[x + y * boardSize] !== 0);
 
-    return { x, y };
+    return { x: x, y: y };
 }
 
 // bestMove :: ([Mark], Size) -> Position
@@ -299,4 +303,4 @@ function bestMove(board, boardSize) {
     return pos;
 }
 
-module.exports = { bestMove, randomMove };
+module.exports = { bestMove: bestMove, randomMove: randomMove };
